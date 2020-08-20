@@ -13,6 +13,16 @@ let arrayOfTodos = [
   "title": "delectus aut autem",
   "completed": false
 }]
+console.log("arrayOfTodos BEFORE:", arrayOfTodos)
+var filterOutIdOne = (todo) => {
+  return todo.id === 1
+}
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  
+}
+arrayOfTodos = arrayOfTodos.filter(filterOutIdOne)
+// console.log("arrayOfTodos AFTER:", todosIdOne)
 // console.log('userId', arrayOfTodos[0].userId)
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
