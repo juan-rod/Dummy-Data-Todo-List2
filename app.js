@@ -13,15 +13,16 @@ let arrayOfTodos = [
   "title": "delectus aut autem",
   "completed": false
 }]
-console.log("arrayOfTodos BEFORE:", arrayOfTodos)
-var filterOutIdOne = (todo) => {
-  return todo.id === 1
-}
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
+let todoByUserId
+// console.log("arrayOfTodos BEFORE:", arrayOfTodos)
+// var filterOutIdOne = (todo) => {
+//   return todo.id === 1
+// }
+// for (let index = 0; index < array.length; index++) {
+//   const element = array[index];
   
-}
-arrayOfTodos = arrayOfTodos.filter(filterOutIdOne)
+// }
+// arrayOfTodos = arrayOfTodos.filter(filterOutIdOne)
 // console.log("arrayOfTodos AFTER:", todosIdOne)
 // console.log('userId', arrayOfTodos[0].userId)
 const fetchTodos = () => {
@@ -31,7 +32,7 @@ const fetchTodos = () => {
 }
 
 const logTodos = () => {
-  console.log(arrayOfTodos)
+  // console.log(arrayOfTodos)
 }
 
 const populateTodos = () => {
@@ -41,7 +42,7 @@ const populateTodos = () => {
   // loop through array to populate dom with each items title
   for (let index = 0; index < arrayOfTodos.length; index++) {
     const complete = arrayOfTodos[index].completed
-    console.log('complete:', arrayOfTodos[index], complete)
+    // console.log('complete:', arrayOfTodos[index], complete)
     // created listItem
     var listItem = document.createElement("li"); 
     // get array item title
@@ -61,4 +62,17 @@ const populateTodos = () => {
     // append to <ol> <li> Hi there and greetings! </li> </ol>
     ol.appendChild(listItem)
   }
+}
+const populateUserSelection = () => {
+  const inputElement = document.getElementsByTagName('input')
+  let inputValue = inputElement[0].value
+  // clear array
+
+arrayOfTodos = arrayOfTodos.filter(todo => todo.userId === parseInt(inputValue))
+  console.log('arrayOfTodos:', arrayOfTodos)
+  // store the new Array 
+}
+const removeTodos = () => {
+  // remove todos
+  // show todos that are either complete and not completed
 }
