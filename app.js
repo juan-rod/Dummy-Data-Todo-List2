@@ -1,7 +1,5 @@
-// We'll pre-populate this array with a couple objects just so it's not undefined if your internet connection isn't working properly.
-
 let arrayOfTodos = [
-{
+  {
   "userId": 14,
   "id": 1,
   "title": "delectus aut autem",
@@ -13,21 +11,12 @@ let arrayOfTodos = [
   "title": "delectus aut autem",
   "completed": false
 }]
-console.log("arrayOfTodos BEFORE:", arrayOfTodos)
-var filterOutIdOne = (todo) => {
-  return todo.id === 1
-}
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  
-}
-arrayOfTodos = arrayOfTodos.filter(filterOutIdOne)
-// console.log("arrayOfTodos AFTER:", todosIdOne)
-// console.log('userId', arrayOfTodos[0].userId)
+
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
-    .then( (response) => response.json())
-    .then( (json) => arrayOfTodos = json)
+  .then( (response) => response.json())
+  .then( (json) => arrayOfTodos = json)
+  console.log('arrayOfTodos:', arrayOfTodos)
 }
 
 const logTodos = () => {
@@ -35,30 +24,23 @@ const logTodos = () => {
 }
 
 const populateTodos = () => {
-  // access the ol tag to insert list items
-  var ol = document.getElementById('todo-list')
+  // get ol tag to insert list items
+  const ol = document.getElementById('todo-list');
 
-  // loop through array to populate dom with each items title
   for (let index = 0; index < arrayOfTodos.length; index++) {
-    const complete = arrayOfTodos[index].completed
-    console.log('complete:', arrayOfTodos[index], complete)
-    // created listItem
-    var listItem = document.createElement("li"); 
-    // get array item title
+    // create a new div element
+    const li = document.createElement("li");
+
+    // get title from object
     const title = arrayOfTodos[index].title
-    // created text to go inside <li> text </li>
-    var listItemText = document.createTextNode(title); 
 
-    if (!complete) {
-      // make text red
-    } else {
-      // make text any color
-    }
+    // put title in the li element
+    const listItemText = document.createTextNode(title);
 
-    // appended the text to the listItem
-    listItem.appendChild(listItemText);
-
-    // append to <ol> <li> Hi there and greetings! </li> </ol>
-    ol.appendChild(listItem)
+    // add textNode to list element
+    li.appendChild(listItemText)
+    // add list item to ol element in DOM
+    // document.body.insertBefore(li, ol);
+    ol.appendChild(li)
   }
 }
